@@ -1,6 +1,3 @@
-import Head from 'next/head'
-import { InferGetServerSidePropsType } from 'next'
-
 
 export default function Home({
 }) {
