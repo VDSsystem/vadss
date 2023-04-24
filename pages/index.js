@@ -1,9 +1,15 @@
+import React, { useEffect } from 'react';
 
-export default function Home({
-}) {
-  return (
-    <div className="container">
-      <h1>Hello world!</h1>
-    </div>
-  )
-}
+const MyPage = () => {
+
+  const redirectToIndex = () => {
+    window.location.href = '/index.html';
+  }
+
+  useEffect(() => {
+    redirectToIndex();
+  }, []);
+
+};
+
+export default MyPage;
