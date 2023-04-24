@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogIn</title>
+    <link rel="stylesheet" href="../css/cssStyle.css">
+
+</head>
+<body class="login">
+    <header class="loginHead">
+        <img src="Media/Logo.jpeg" alt="">
+    </header>
+    <main class="loginMain">
+        <form action="#" class="logInForm">
+            <section class="form-email">
+            <input type="email" name="email" id="email" required placeholder="Email Address">
+            </section>
+            <section class="form-pass">
+                <input type="password" name="password" id="password" required placeholder="Password">
+            </section>
+            <section class="form-p">
+                <p>Forget your password?</p>
+            </section>
+            <button>Log In</button>
+        </form>
+        <div id="error-box" class="hidden">Email or password is incorrect</div>
+    </main>
+    <script src="../js/login.js" type="module"></script>
+</body>
+</html>
