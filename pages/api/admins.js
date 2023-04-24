@@ -1,6 +1,23 @@
 import { connectToDatabase } from "../../lib/mongodb"
-export default async function handler(req, res){
+
+export async function GET(request) {
     const db = await connectToDatabase()
-    const data = await db.collection("admins").find().toArray()
-    res.json(data)
+    const admins = await db.collection("admins").find().toArray()
+  return Response.json(admins)
+}
+export async function POST(request) {
+    const { email, password } = await request.json();
+    console.log(`Received email: ${email}, password: ${password}`);
+    const admin = await repo.userAuthentication(email,password);
+    if (!admin) { // Check if admin is falsy
+      console.log(`User ${email} is not authorized`);
+      return new Response(JSON.stringify({ success: false }), {
+        headers: { 'Content-Type': 'application/json' }
+      });
+    } else {
+      console.log(`User ${email} is authorized`);
+      return new Response(JSON.stringify({ success: true }), {
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
 }
