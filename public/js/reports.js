@@ -8,8 +8,13 @@ window.onload = async () => {
 async function handleLoadReports() {
     const reportsArea = document.querySelector(".reportList")
     const reports = await ReportsHandler.getReports()
-    const reportsCards = reports.map((reports) => repToCards(reports)).join('');
-    reportsArea.innerHTML = reportsCards;       
+    if (reports.length === 0) {
+        reportsArea.innerHTML = "There are no reports yet."
+    } else {
+        const reportsCards = reports.map((report) => repToCards(report)).join('')
+        reportsArea.innerHTML = reportsCards
+    }
+        
 }
 function repToCards(reports) {
     return `
