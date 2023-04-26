@@ -1,13 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 const MyPage = () => {
-
-  const redirectToIndex = () => {
-    window.location.href = '/main.html';
-  }
-
-  useEffect(() => {
-    redirectToIndex();
-  }, []);
-
+  return (
+    <div>
+      <h1>Hello World!</h1>
+    </div>
+  );
 };
+
+export default MyPage;
