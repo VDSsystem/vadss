@@ -7,12 +7,6 @@ const MyPage = () => {
   useEffect(() => {
     router.push('/main.html');
   }, []);
-
-  return (
-    <div>
-      <h1>Hello World!</h1>
-    </div>
-  );
 };
 
 export default MyPage;
