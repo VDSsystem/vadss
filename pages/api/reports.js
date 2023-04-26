@@ -7,13 +7,15 @@ export default async function handler(req, res) {
   switch (req.method) {
     case "POST":
       const newReport = req.body;
+      let maxId = 0;
       const result = await collection.aggregate([
         { $sort: { id: -1 } },
-        { $limit: 1 }
-      ]).toArray();
-      const maxId = result[0].id;
-      newReport.id = maxId +1
-      const addedReport = await collection.insertOne(newReport);
+        { $limit: 1 }]).toArray();
+        if (result.length > 0) {
+            maxId = result[0].id;
+        }
+        newReport.id = maxId + 1;
+        const addedReport = await collection.insertOne(newReport);
       console.log(addedReport)
       if (!newReport) { 
         res.status(401).json({ success: false });
