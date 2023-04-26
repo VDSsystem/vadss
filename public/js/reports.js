@@ -2,8 +2,7 @@ import ReportsHandler from "./repository/reportsHandler.js"
 
 window.onload = async () => {
     await handleLoadReports()
-   console.log("Loaded")
-
+    setInterval(handleLoadReports, 2000)
 }
 async function handleLoadReports() {
     const reportsArea = document.querySelector(".reportList")
