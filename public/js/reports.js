@@ -40,7 +40,7 @@ function repToCards(reports) {
         </tr>
         <tr>
             <td>Location</td>
-            <td>${reports.location}</td>
+            <td><a href="${reports.location}">${reports.location}</a></td>
         </tr>
         <tr>
             <td>Description</td>
