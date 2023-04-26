@@ -220,6 +220,11 @@
     text-align: center;
     align-items: center;
    }
+   .reports td{
+    color: #ffffff;
+    text-align: center;
+    align-items: center;
+   }
    .reports h1{
     text-align: center;
     margin-bottom: 2rem;
