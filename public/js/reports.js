@@ -44,7 +44,7 @@ function repToCards(reports) {
         </tr>
         <tr>
             <td>Description</td>
-            <td>DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD</td>
+            <td>${reports.description}</td>
         </tr>
         
     </table>
