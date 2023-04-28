@@ -31,6 +31,10 @@ function repToCards(reports) {
           <td>${reports.flex}</td>
         </tr>
         <tr>
+          <td>Flex2</td>
+          <td>${reports.flex2}</td>
+        </tr>
+        <tr>
             <td>Temprature</td>
             <td>${reports.temprature}</td>
         </tr>
