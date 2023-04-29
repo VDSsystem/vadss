@@ -23,6 +23,10 @@ function repToCards(reports) {
           <th colspan="2">Accident Alert <span>!!! ID ${reports.id}</span></th>
         </tr>
         <tr>
+            <td>Date and Time</td>
+            <td>${reports.dateTime}</td>
+          </tr>
+        <tr>
           <td>Smoke</td>
           <td>${reports.smoke}</td>
         </tr>
