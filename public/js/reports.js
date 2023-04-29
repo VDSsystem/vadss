@@ -25,7 +25,11 @@ function repToCards(reports) {
         <tr>
             <td>Date and Time</td>
             <td>${reports.dateTime}</td>
-          </tr>
+        </tr>
+        <tr>
+            <td>Severity</td>
+            <td>${reports.sev}</td>
+        </tr>
         <tr>
           <td>Smoke</td>
           <td>${reports.smoke}</td>
