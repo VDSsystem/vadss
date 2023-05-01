@@ -218,45 +218,59 @@
     background-color: rgb(255, 255, 255);
     color: #000000;
     text-align: center;
+    margin: auto;
+   }
+   .reportsHead {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    gap: 2rem;
+   }
+   .reportGrid{
+    margin: 1rem;
+   }
+   .reportList{
+    text-align: center;
     align-items: center;
+    justify-items: center;
+    gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+   }
+   .reportCard{
+    border-collapse: collapse;
+    table-layout: auto;
+    height: 400px;
+    width: 100%;
+    background-color: #000000c1;
+    border: 1px solid rgb(0, 0, 0);
+   }
+   .reports h1{
+    text-align: center;
+    border-bottom: 1px solid #000000;
+    padding-bottom: 1rem;
+   }
+   .reports th{
+    background-color: #000000;
+    box-shadow: inset 0px 5px 10px 0px rgba(99, 97, 97, 0.7);
+    color: #ffffff;
+    height: 40px;
+   }
+   .reports tr {
+    height: 15px;
    }
    .reports td{
     color: #ffffff;
     text-align: center;
     align-items: center;
    }
-   .reports h1{
-    text-align: center;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid #000000;
-    padding: 1rem;
-   }
-   .reportGrid{
-    width: 100%;
-   }
-   .reports table{
-    width: 50%;
-    padding: 0.3rem;
-    background-color: #000000c1;
-    
-   }
-   .reports th{
-    background-color: #000000;
-    box-shadow: inset 0px 5px 10px 0px rgba(99, 97, 97, 0.7);
-    padding: 0.5rem;
-    color: #ffffff;
-    
-   }
-   .reports span{
-    color: #b00b0b;
-   }
-   .reports footer{
-    margin-top: 13.5rem;
+   .small{
+    width: 25%;
    }
    .reports a{
     text-decoration: none;
     color: #b00b0b;
-    font-weight: bold;
    }
    .reports a:hover{
     text-decoration: underline;
@@ -264,17 +278,11 @@
     font-weight: bolder;
     box-shadow: 0px 5px 10px 0px rgba(186, 18, 18, 0.7);
    }
-   .reportList{
-    margin: 1rem;
-    row-gap: 1rem;
-    column-gap: 1rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-    justify-items: center;
+   .reports span{
+    color: #b00b0b;
    }
-   .reportCard{
-    width: 500px;
-
+   #sev, #sev2{
+    background-color: #b00b0b;
    }
    .detectBody{
     background-color: #ffffff;
@@ -328,4 +336,5 @@
     font-size: large;
     font-weight: bold;
    }
+   
    

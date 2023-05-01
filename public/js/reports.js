@@ -17,50 +17,55 @@ async function handleLoadReports() {
 }
 function repToCards(reports) {
     return `
-    <section class="reportCard">
-    <table border="1">
+    <table border="1" class="reportCard">
         <tr>
           <th colspan="2">Accident Alert <span>!!! ID ${reports.id}</span></th>
         </tr>
         <tr>
-            <td>Date and Time</td>
+            <td class="small">Date and Time</td>
             <td>${reports.dateTime}</td>
         </tr>
         <tr>
-            <td>Severity</td>
-            <td>${reports.sev}</td>
+            <td class="small" id="sev">Severity</td>
+            <td class="Severity" id="sev2">${reports.sev}</td>
         </tr>
         <tr>
-          <td>Smoke</td>
+          <td class="small">Smoke</td>
           <td>${reports.smoke}</td>
         </tr>
         <tr>
-          <td>Flex</td>
+          <td class="small">Front right flex</td>
           <td>${reports.flex}</td>
         </tr>
         <tr>
-          <td>Flex2</td>
+          <td class="small">Front left flex</td>
           <td>${reports.flex2}</td>
         </tr>
         <tr>
-            <td>Temprature</td>
+            <td class="small">Back right flex</td>
+            <td>${reports.flex3}</td>
+        </tr>
+        <tr>
+            <td class="small">Back left flex</td>
+            <td>${reports.flex4}</td>
+        </tr>
+        <tr>
+            <td class="small">Temprature</td>
             <td>${reports.temprature}</td>
         </tr>
         <tr>
-            <td>IMU</td>
+            <td class="small">Flipping</td>
             <td>${reports.imu}</td>
         </tr>
         <tr>
-            <td>Location</td>
+            <td class="small">Location</td>
             <td><a href="${reports.location}">${reports.location}</a></td>
         </tr>
         <tr>
-            <td>Description</td>
+            <td class="small">Description</td>
             <td>${reports.description}</td>
         </tr>
         
     </table>
-
-</section>
     `;
 }
