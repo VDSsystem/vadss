@@ -8,6 +8,7 @@ export default async function handler(req, res) {
     case "POST":
       const { email, password } = JSON.parse(JSON.stringify(req.body));
       console.log(email, password)
+      //const newAdmin = { email, password };
       //const addedAdmin = await collection.insertOne(newAdmin);
       const admin = await userAuthentication(email, password, collection);
       if (!admin) { // Check if admin is falsy
@@ -17,6 +18,7 @@ export default async function handler(req, res) {
         console.log(`User ${email} is authorized`);
         res.status(200).json({ success: true });
       }
+      //res.status(200).json({ success: true });
       break;
     case "GET":
       const admins = await collection.find({}).toArray();
