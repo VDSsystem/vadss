@@ -14,9 +14,19 @@ export default async function handler(req, res) {
         if (result.length > 0) {
             maxId = result[0].id;
         }
-        newReport.id = maxId + 1;
+        const foundReports = await collection.find({}).toArray();
+        const foundReport = foundReports.find(r => r.espID === newReport.espID);
+        const maxIdNum = parseInt(maxId);
+        console.log(foundReport);
+        if (foundReport) {
+          newReport.id = maxIdNum + "-B";
+        } else {
+          newReport.id = maxIdNum + 1 + "-A";
+        }
         const addedReport = await collection.insertOne(newReport);
-      console.log(addedReport)
+        console.log(addedReport);
+        
+        
       if (!newReport) { 
         res.status(401).json({ success: false });
       } else {
