@@ -1,4 +1,4 @@
-import adminsToServer from "./repository/adminsToServer.js"
+import adminsToServer from "../controller/adminsHandler.js"
 
 window.onload = async () => {
    const formInputs = document.querySelector('.logInForm')

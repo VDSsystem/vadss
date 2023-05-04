@@ -1,4 +1,4 @@
-import uploadFiles from "./repository/uploadFiles.js";
+import uploadFiles from "../controller/uploadHandler.js";
 window.onload = async () => {
     const uploadBTN = document.querySelector('.upload');
     uploadBTN.addEventListener('click', handleDetect);

@@ -1,4 +1,4 @@
-import ReportsHandler from "./repository/reportsHandler.js"
+import ReportsHandler from "../controller/reportsHandler.js"
 
 window.onload = async () => {
     await handleLoadReports()
