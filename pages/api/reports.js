@@ -15,7 +15,7 @@ export default async function handler(req, res) {
             maxId = result[0].id;
         }//finding the maximumID 
         const foundReports = await collection.find({}).toArray();//finding all reports
-        const foundReport = foundReports.find(r => r.espID.toLowerCase() == newReport.espID.toLowerCase());
+        const foundReport = foundReports.find(r => r.espID == newReport.espID);
         const maxIdNum = parseInt(maxId);//getting the maxIdNum number only
         console.log(foundReport);
         if (foundReport) {//if the report with the same espID already exists
