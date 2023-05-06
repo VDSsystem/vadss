@@ -13,15 +13,15 @@ export default async function handler(req, res) {
         { $limit: 1 }]).toArray();
         if (result.length > 0) {
             maxId = result[0].id;
-        }
-        const foundReports = await collection.find({}).toArray();
-        const foundReport = foundReports.find(r => r.espID === newReport.espID);
-        const maxIdNum = parseInt(maxId);
+        }//finding the maximumID 
+        const foundReports = await collection.find({}).toArray();//finding all reports
+        const foundReport = foundReports.find(r => r.espID.toLowerCase() == newReport.espID.toLowerCase());
+        const maxIdNum = parseInt(maxId);//getting the maxIdNum number only
         console.log(foundReport);
-        if (foundReport) {
-          newReport.id = maxIdNum + "-B";
+        if (foundReport) {//if the report with the same espID already exists
+          newReport.id = maxIdNum + "-B";//give it the name B
         } else {
-          newReport.id = maxIdNum + 1 + "-A";
+          newReport.id = maxIdNum + 1 + "-A";//geive it the name A
         }
         const addedReport = await collection.insertOne(newReport);
         console.log(addedReport);
