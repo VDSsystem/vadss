@@ -5,7 +5,7 @@ const MyPage = () => {
   const router = useRouter();
 
   useEffect(() => {
-    router.push('/main.html');
+    router.push('./main.html');
   }, []);
 };
 
