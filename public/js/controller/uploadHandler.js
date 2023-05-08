@@ -1,4 +1,3 @@
-const baseUrl = '/api/savedImages';
 
 class UploadFiles {
   async upload(file) {
