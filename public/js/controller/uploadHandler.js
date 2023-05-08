@@ -1,4 +1,4 @@
-
+const baseUrl = '/api/savedImages'
 class UploadFiles {
   async upload(file) {
     const data = new FormData();
@@ -10,11 +10,25 @@ class UploadFiles {
         method: 'POST',
         body: data
       }).then(r => r.json());
-      console.log(response);
+      return response.url;
     } catch (error) {
       console.error(error);
     }
   }
+  async toDataBase(url){
+    const response = await fetch(baseUrl, {
+      method: 'POST',
+      body: JSON.stringify({ url }),
+    });
+    const data = await response.json();
+    return data.id;
+  }
+  async getImage(id){
+    const response = await fetch(`${baseUrl}?id=${id}`)
+    const data = await response.json()
+    return data.url
+  }
+
 }
 
 export default new UploadFiles();
