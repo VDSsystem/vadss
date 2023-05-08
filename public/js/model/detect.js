@@ -8,17 +8,9 @@ async function handleDetect(){
    const type = "detected"
    const fileInput = document.querySelector('#file'); 
     const imageUploaded = fileInput.files[0]; 
+    console.log(imageUploaded);
     const res = await uploadFiles.upload(imageUploaded)
     console.log(res);
-    const images = await uploadFiles.getImages()
-    console.log(images);
-/*
-    const imageReader = new FileReader(); 
-   const image = await new Promise((resolve) => {
-    imageReader.onload = () => resolve(imageReader.result);
-    imageReader.readAsDataURL(imageUploaded);
-  });*/
-  //result.innerHTML = toResult(image,type)
   const form = document.querySelector("form")
   form.reset()
 

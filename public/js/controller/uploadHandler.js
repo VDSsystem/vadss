@@ -1,41 +1,21 @@
-const baseUrl = '/api/savedImages'
+const baseUrl = '/api/savedImages';
 
 class UploadFiles {
-    async upload(file) {
-        const formData = new FormData();
-        formData.append('image', file);
-        try {
-            const response = await fetch(baseUrl, {
-              method: 'POST',
-              body: formData
-            })
-  
-            if (response.ok) {
-                const result = await response.json();
-                console.log('Image uploaded successfully:', result.imageUrl);
-            } else {
-              throw new Error('Upload failed')
-            }
-          } catch (error) {
-            console.error(error)
-          }
-        }
-        async getImages(){
-            try {
-                const response = await fetch(baseUrl);
-                if (response.ok) {
-                  const images = await response.json();
-                  return images.data;
-                } else {
-                  throw new Error('Error retrieving images');
-                }
-              } catch (error) {
-                console.error(error);
-              }
-            
-        }
-      
-   
+  async upload(file) {
+    const data = new FormData();
+    data.append('file', file);
+    data.append('upload_preset', 'myUploads');
+    data.append("api_key", '231941467471291');
+    try {
+      const response = await fetch('https://api.cloudinary.com/v1_1/pdfuuif0cy/image/upload', {
+        method: 'POST',
+        body: data
+      }).then(r => r.json());
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 }
 
-export default new UploadFiles()
+export default new UploadFiles();
