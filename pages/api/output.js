@@ -7,7 +7,6 @@ export default async function handler(req, res) {
   switch (req.method) {
     case "POST":
   const newImageString = req.body;
-  const newImage = JSON.parse(newImageString);
   let maxId = 0;
   const result = await collection.aggregate([
     { $sort: { id: -1 } },
@@ -16,8 +15,8 @@ export default async function handler(req, res) {
     maxId = result[0].id;
   } //finding the maximumID 
   const newId = maxId + 1;
-  newImage.id = newId;
-  const addedImage = await collection.insertOne(newImage);
+  newImageString.id = newId;
+  const addedImage = await collection.insertOne(newImageString);
   console.log(addedImage);
   if (!addedImage) {
     res.status(401).json({ success: false });
