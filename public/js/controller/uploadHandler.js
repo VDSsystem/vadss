@@ -28,6 +28,19 @@ class UploadFiles {
     const data = await response.json()
     return data.url
   }
+  async toModel(id){
+    const response = await fetch('https://model-zeta.vercel.app/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ id: id })
+  });
+
+  const data = await response.json();
+  const url = data.url;
+  return url;
+  }
 
 }
 

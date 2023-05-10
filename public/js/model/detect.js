@@ -10,10 +10,12 @@ async function handleDetect(){
     const imageUploaded = fileInput.files[0]; 
     console.log(imageUploaded);
     const imageURL = await uploadFiles.upload(imageUploaded)
-    const toDataBase = await uploadFiles.toDataBase(imageURL)
-    const displayImage = await uploadFiles.getImage(toDataBase)
+    const imageID = await uploadFiles.toDataBase(imageURL)
+    const toModel = await uploadFiles.toModel(imageID)
+    console.log(toModel);
+   /* const displayImage = await uploadFiles.getImage(toDataBase)
     console.log("imageURL!!! "+displayImage);
-    result.innerHTML = toResult(displayImage, type)
+    result.innerHTML = toResult(displayImage, type)*/
   const form = document.querySelector("form")
   form.reset()
 
