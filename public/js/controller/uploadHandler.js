@@ -29,7 +29,7 @@ class UploadFiles {
     return data.url
   }
   async toModel(id) {
-    const response = await fetch('https://model-zeta.vercel.app/', {
+    const response = await fetch('http://172.16.0.18:8000/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
