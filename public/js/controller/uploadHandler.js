@@ -34,7 +34,9 @@ class UploadFiles {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ id: id })
+      body: JSON.stringify({ id: id }),
+      verify: false
+
     });
   
     const data = await response.json();
