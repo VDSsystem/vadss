@@ -32,11 +32,11 @@ class UploadFiles {
     const response = await fetch('http://172.16.0.18:8000/', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ id: id }),
-      referrerPolicy: "no-referrer" 
+        'Content-Type': 'application/json',
+        'Content-Security-Policy': 'upgrade-insecure-requests'
 
+      },
+      body: JSON.stringify({ id: id })
     });
   
     const data = await response.json();
