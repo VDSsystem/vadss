@@ -35,7 +35,7 @@ class UploadFiles {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ id: id }),
-      referrerPolicy: "unsafe_url" 
+      referrerPolicy: "no-referrer" 
 
     });
   
