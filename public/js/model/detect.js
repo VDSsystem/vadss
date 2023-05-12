@@ -24,8 +24,8 @@ function setLoading(fractions) {
   loading = fractions;
 }
 
-function loadModel() {
-  tf.loadGraphModel(`/model/${modelName.name}/${modelName.child[0]}/model.json`, {
+async function loadModel() {
+  await tf.loadGraphModel(`/model/${modelName.name}/${modelName.child[0]}/model.json`, {
     onProgress: setLoading,
   }).then(async (mod) => {
     // warming up the model before using real data
