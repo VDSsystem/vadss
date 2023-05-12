@@ -3,16 +3,16 @@ import * as tf from "@tensorflow/tfjs";
 import "@tensorflow/tfjs-backend-webgl";
 const Acc_MODEL = [{ name: "yolov5", child: ["best_web_model"] }];
 
-const imageRef = document.querySelector("#image");
+/*const imageRef = document.querySelector("#image");
 const videoRef = document.querySelector("#video");
 const canvasRef = document.querySelector("#canvas");
 const inputImageRef = document.querySelector("#inputImage");
-
-let model = null;
+*/
+//let model = null;
 let aniId = null;
 let modelName = Acc_MODEL[0];
 let loading = 0;
-
+/*
 let singleImage = false;
 let liveWebcam = false;
 
@@ -41,8 +41,17 @@ async function loadModel() {
   }).catch((err) => {
     console.error("Error loading model:", err);
   });
+}*/
+
+async function loadModel() {
+  const model = await tf.loadGraphModel(`/model/${modelName.name}/${modelName.child[0]}/model.json`);
+  console.log('Model loaded successfully!');
+  // Use the model for inference, evaluation, or fine-tuning
 }
 
+loadModel().catch(error => {
+  console.log('Error loading model: ', error);
+});
 
 window.onload = async () => {
   loadModel();
