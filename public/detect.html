@@ -58,7 +58,7 @@
             canv.id = 'canvas';
             const container = document.createElement('div');
             canv.style.zIndex = '1'; // Make sure the canvas is on top of the image
-
+            const result = document.querySelector('.result')
                 function handleUpload(file) {
                         const src = window.URL.createObjectURL(file);
                         imageRef.src = src;
