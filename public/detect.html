@@ -22,8 +22,9 @@
             console.log("Done");
         }
         loadModel();
+        const uploadBtn = document.querySelector('.upload');
+        uploadBtn.addEventListener('click', handleImage);
         const fileInput = document.getElementById('file');
-
         function handleImage() {
              const file = fileInput.files[0];
                     if (!file) {
@@ -50,7 +51,7 @@
         <form action="#" class="uploadForm">
             <input type="file" name="file" id="file" class="file">
           </form>
-          <button class="upload" onclick="handleImage()">Upload Image</button>
+          <button class="upload">Upload Image</button>
         <section class="result">
         </section>
     </main>
