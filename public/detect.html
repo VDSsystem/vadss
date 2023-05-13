@@ -99,7 +99,6 @@
                 const renderPrediction = (boxesData, scoresData, classesData) => {
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext("2d");
-  canvas.style.backgroundColor = 'transparent';
 
 
   // clean canvas
@@ -138,8 +137,7 @@
     // draw the label text
     ctx.fillStyle = "#FFFFFF";
     ctx.fillText(label, x1 + 2, y1 - (textHeight + 2));
-    result.innerHTML = '';
-    result.appendChild(canv);
+    
     
   }
 }
