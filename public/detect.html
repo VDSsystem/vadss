@@ -35,8 +35,10 @@
                 tf.dispose(dummy);
                 console.log("Done");
             }
-            loadModel();
-            window.addEventListener('click', loadModel);
+            window.addEventListener('DOMContentLoaded', (event) => {
+                         loadModel();
+                    });
+
             const fileInput = document.getElementById('file');
             function handleImage() {
                  const file = fileInput.files[0];
