@@ -20,6 +20,8 @@
           </form>
           <button class="upload" onclick="handleImage()">Upload Image</button>
         <section class="result">
+            <img id="imageRef" src="" alt="">
+            <canvas id="canvas"></canvas>
         </section>
         <script>
             let model = null;
@@ -53,13 +55,8 @@
                 }
                 handleUpload(file);
             }
-            const imageRef = document.createElement('img');
-            const canv = document.createElement('canvas');
-            canv.id = 'canvas';
-            const result = document.querySelector('.result');
-            document.body.appendChild(imageRef);
-            document.body.appendChild(canv);
-            
+            const imageRef =document.getElementById('imageRef');
+
 
 
                 function handleUpload(file) {
@@ -70,8 +67,6 @@
                             window.URL.revokeObjectURL(src);
                         }
                         
-                        result.innerHTML = '';
-                        result.appendChild(imageRef);
                         
                     console.log(`Uploaded file: ${file.name}`);
                 }
