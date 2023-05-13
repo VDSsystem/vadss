@@ -56,11 +56,12 @@
             const imageRef = document.createElement('img');
             const canv = document.createElement('canvas');
             canv.id = 'canvas';
+            const container = document.createElement('div');
+            container.appendChild(imageRef);
+            container.appendChild(canv);
             const result = document.querySelector('.result');
-            document.body.appendChild(imageRef);
-            document.body.appendChild(canv);
-            
-
+            result.appendChild(container);
+            canv.style.zIndex = '1'; // Make sure the canvas is on top of the image
 
                 function handleUpload(file) {
                         const src = window.URL.createObjectURL(file);
@@ -136,7 +137,6 @@
     // draw the label text
     ctx.fillStyle = "#FFFFFF";
     ctx.fillText(label, x1 + 2, y1 - (textHeight + 2));
-    ctx.drawImage(imageRef, 0, 0)
     result.innerHTML = '';
     result.appendChild(canv);
     
