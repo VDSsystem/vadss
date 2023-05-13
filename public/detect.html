@@ -59,9 +59,7 @@
             const result = document.querySelector('.result');
             document.body.appendChild(imageRef);
             document.body.appendChild(canv);
-            canv.style.position = 'absolute';
-canv.style.top = '0';
-canv.style.left = '0';
+            
 
 
                 function handleUpload(file) {
@@ -101,6 +99,8 @@ canv.style.left = '0';
                 const renderPrediction = (boxesData, scoresData, classesData) => {
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext("2d");
+  canvas.style.backgroundColor = 'transparent';
+
 
   // clean canvas
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
