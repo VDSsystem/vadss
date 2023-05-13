@@ -7,39 +7,6 @@
     <title>Detect Accidents</title>
     <link rel="stylesheet" href="../css/cssStyle.css">
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
-    <script>
-        let model = null;
-        let loading = 0;
-        async function loadModel() {
-            model = await tf.loadGraphModel("https://raw.githubusercontent.com/VDSsystem/yolov5/main/model.json");
-            console.log('Model loaded successfully!');
-            const dummy = tf.ones(model.inputs[0].shape);
-            const res = await model.executeAsync(dummy);
-
-            // clear memory
-            tf.dispose(res);
-            tf.dispose(dummy);
-            console.log("Done");
-        }
-        loadModel();
-        const uploadBtn = document.querySelector('.upload');
-        uploadBtn.addEventListener('click', handleImage);
-        const fileInput = document.getElementById('file');
-        function handleImage() {
-             const file = fileInput.files[0];
-                    if (!file) {
-                         console.log('No file selected.');
-                    return;
-            }
-            handleUpload(file);
-        }
-
-            function handleUpload(file) {
-                    // code to handle the uploaded file
-                console.log(`Uploaded file: ${file.name}`);
-            }
-        
-    </script>
 
 </head>
 <body class="detectBody">
@@ -51,9 +18,41 @@
         <form action="#" class="uploadForm">
             <input type="file" name="file" id="file" class="file">
           </form>
-          <button class="upload">Upload Image</button>
+          <button class="upload" onclick="handleImage()">Upload Image</button>
         <section class="result">
         </section>
+        <script>
+            let model = null;
+            let loading = 0;
+            async function loadModel() {
+                model = await tf.loadGraphModel("https://raw.githubusercontent.com/VDSsystem/yolov5/main/model.json");
+                console.log('Model loaded successfully!');
+                const dummy = tf.ones(model.inputs[0].shape);
+                const res = await model.executeAsync(dummy);
+    
+                // clear memory
+                tf.dispose(res);
+                tf.dispose(dummy);
+                console.log("Done");
+            }
+            loadModel();
+            window.addEventListener('click', loadModel);
+            const fileInput = document.getElementById('file');
+            function handleImage() {
+                 const file = fileInput.files[0];
+                        if (!file) {
+                             console.log('No file selected.');
+                        return;
+                }
+                handleUpload(file);
+            }
+    
+                function handleUpload(file) {
+                        // code to handle the uploaded file
+                    console.log(`Uploaded file: ${file.name}`);
+                }
+            
+        </script>
     </main>
 </body>
 </html>
