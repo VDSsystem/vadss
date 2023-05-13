@@ -59,14 +59,12 @@
             const result = document.querySelector('.result');
             document.body.appendChild(imageRef);
             document.body.appendChild(canv);
-            let s;
             
 
 
                 function handleUpload(file) {
                         const src = window.URL.createObjectURL(file);
                         imageRef.src = src;
-                        s = imageRef.src.toString();
                         imageRef.onload = () => {
                             doPredictImage();
                             window.URL.revokeObjectURL(src);
@@ -101,10 +99,6 @@
                 const renderPrediction = (boxesData, scoresData, classesData) => {
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext("2d");
-  const background = new Image();
-background.src = s;
-
-
 
   // clean canvas
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -142,8 +136,8 @@ background.src = s;
     // draw the label text
     ctx.fillStyle = "#FFFFFF";
     ctx.fillText(label, x1 + 2, y1 - (textHeight + 2));
-    result.innerHTML = '';
-    result.appendChild(canv);
+    ctx.drawImage(imageRef, 0, 0);
+
     
   }
 }
