@@ -54,7 +54,8 @@
                 handleUpload(file);
             }
             const imageRef = document.createElement('img');
-            //const canv = document.createElement('canvas');
+            const canv = document.createElement('canvas');
+            const result = document.querySelector('.result');
 
 
                 function handleUpload(file) {
@@ -65,7 +66,7 @@
                             window.URL.revokeObjectURL(src);
                         }
                         document.body.appendChild(imageRef);
-                        const result = document.querySelector('.result');
+                        document.body.appendChild(canv);
                         result.innerHTML = '';
                         result.appendChild(imageRef);
                     console.log(`Uploaded file: ${file.name}`);
@@ -83,7 +84,7 @@
                     const boxesData = boxes.dataSync();
                     const scoresData = scores.dataSync();
                     const classesData = classes.dataSync();
-                    //renderPrediction(boxesData, scoresData, classesData);
+                    renderPrediction(boxesData, scoresData, classesData);
                     console.log("boxes" + boxes + " scores" + scores + " classes" + classes);
                     // clear memory
                     tf.dispose(res);
@@ -91,7 +92,7 @@
                     tf.engine().endScope();
 
                 }
-                /*const renderPrediction = (boxesData, scoresData, classesData) => {
+                const renderPrediction = (boxesData, scoresData, classesData) => {
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext("2d");
 
@@ -131,8 +132,10 @@
     // draw the label text
     ctx.fillStyle = "#FFFFFF";
     ctx.fillText(label, x1 + 2, y1 - (textHeight + 2));
+    result.innerHTML = '';
+    result.appendChild(canv);
   }
-};*/
+}
             
         </script>
     </main>
