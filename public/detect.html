@@ -54,7 +54,7 @@
                 handleUpload(file);
             }
             const imageRef = document.createElement('img');
-            const canv = document.createElement('canvas');
+            //const canv = document.createElement('canvas');
 
 
                 function handleUpload(file) {
@@ -64,6 +64,10 @@
                             doPredictImage();
                             window.URL.revokeObjectURL(src);
                         }*/
+                        document.body.appendChild(imageRef);
+                        const result = document.querySelector('.result');
+                        result.innerHTML = '';
+                        result.appendChild(imageRef);
                     console.log(`Uploaded file: ${file.name}`);
                 }
                 async function doPredictImage(){
