@@ -57,10 +57,6 @@
             const canv = document.createElement('canvas');
             canv.id = 'canvas';
             const container = document.createElement('div');
-            container.appendChild(imageRef);
-            container.appendChild(canv);
-            const result = document.querySelector('.result');
-            result.appendChild(container);
             canv.style.zIndex = '1'; // Make sure the canvas is on top of the image
 
                 function handleUpload(file) {
@@ -137,8 +133,10 @@
     // draw the label text
     ctx.fillStyle = "#FFFFFF";
     ctx.fillText(label, x1 + 2, y1 - (textHeight + 2));
-    result.innerHTML = '';
-    result.appendChild(canv);
+    container.appendChild(imageRef);
+            container.appendChild(canv);
+            const result = document.querySelector('.result');
+            result.appendChild(container);
     
   }
 }
