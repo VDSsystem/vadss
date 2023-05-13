@@ -20,8 +20,6 @@
           </form>
           <button class="upload" onclick="handleImage()">Upload Image</button>
         <section class="result">
-            <img id="imageRef" src="" alt="">
-            <canvas id="canvas"></canvas>
         </section>
         <script>
             let model = null;
@@ -55,8 +53,13 @@
                 }
                 handleUpload(file);
             }
-            const imageRef =document.getElementById('imageRef');
-
+            const imageRef = document.createElement('img');
+            const canv = document.createElement('canvas');
+            canv.id = 'canvas';
+            const result = document.querySelector('.result');
+            document.body.appendChild(imageRef);
+            document.body.appendChild(canv);
+            
 
 
                 function handleUpload(file) {
@@ -67,6 +70,8 @@
                             window.URL.revokeObjectURL(src);
                         }
                         
+                        result.innerHTML = '';
+                        result.appendChild(imageRef);
                         
                     console.log(`Uploaded file: ${file.name}`);
                 }
@@ -94,6 +99,9 @@
                 const renderPrediction = (boxesData, scoresData, classesData) => {
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext("2d");
+  const background = new Image();
+background.src = imageRef.src;
+
 
 
   // clean canvas
@@ -132,7 +140,8 @@
     // draw the label text
     ctx.fillStyle = "#FFFFFF";
     ctx.fillText(label, x1 + 2, y1 - (textHeight + 2));
-    
+    result.innerHTML = '';
+                        result.appendChild(canv);
     
   }
 }
