@@ -13,15 +13,15 @@
         async function loadModel() {
             model = await tf.loadGraphModel("https://raw.githubusercontent.com/VDSsystem/yolov5/main/model.json");
             console.log('Model loaded successfully!');
-        }
-        loadModel();
-        const dummy = tf.ones(model.inputs[0].shape);
-        const res = await model.executeAsync(dummy);
+            const dummy = tf.ones(model.inputs[0].shape);
+            const res = await model.executeAsync(dummy);
 
             // clear memory
-        tf.dispose(res);
-        tf.dispose(dummy);
-        console.log("Done");
+            tf.dispose(res);
+            tf.dispose(dummy);
+            console.log("Done");
+        }
+        loadModel();
         const fileInput = document.getElementById('file');
 
         function handleImage() {
