@@ -55,7 +55,10 @@
             }
             const imageRef = document.createElement('img');
             const canv = document.createElement('canvas');
+            canv.id = 'canvas';
             const result = document.querySelector('.result');
+            document.body.appendChild(imageRef);
+            document.body.appendChild(canv);
 
 
                 function handleUpload(file) {
@@ -65,10 +68,10 @@
                             doPredictImage();
                             window.URL.revokeObjectURL(src);
                         }
-                        document.body.appendChild(imageRef);
-                        document.body.appendChild(canv);
+                        
                         result.innerHTML = '';
                         result.appendChild(imageRef);
+                        
                     console.log(`Uploaded file: ${file.name}`);
                 }
                 async function doPredictImage(){
@@ -134,6 +137,7 @@
     ctx.fillText(label, x1 + 2, y1 - (textHeight + 2));
     result.innerHTML = '';
     result.appendChild(canv);
+    
   }
 }
             
