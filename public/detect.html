@@ -60,10 +60,10 @@
                 function handleUpload(file) {
                         const src = window.URL.createObjectURL(file);
                         imageRef.src = src;
-                       /* imageRef.onload = () => {
+                        imageRef.onload = () => {
                             doPredictImage();
                             window.URL.revokeObjectURL(src);
-                        }*/
+                        }
                         document.body.appendChild(imageRef);
                         const result = document.querySelector('.result');
                         result.innerHTML = '';
@@ -83,7 +83,8 @@
                     const boxesData = boxes.dataSync();
                     const scoresData = scores.dataSync();
                     const classesData = classes.dataSync();
-                    renderPrediction(boxesData, scoresData, classesData);
+                    //renderPrediction(boxesData, scoresData, classesData);
+                    console.log("working");
                     // clear memory
                     tf.dispose(res);
 
