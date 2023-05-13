@@ -22,6 +22,21 @@
         tf.dispose(res);
         tf.dispose(dummy);
         console.log("Done");
+        const fileInput = document.getElementById('file');
+
+        function handleImage() {
+             const file = fileInput.files[0];
+                    if (!file) {
+                         console.log('No file selected.');
+                    return;
+            }
+            handleUpload(file);
+        }
+
+            function handleUpload(file) {
+                    // code to handle the uploaded file
+                console.log(`Uploaded file: ${file.name}`);
+            }
         
     </script>
 
@@ -34,10 +49,9 @@
         <h1>Please select a picture to determine whether an accident occur or not</h1>
         <form action="#" class="uploadForm">
             <input type="file" name="file" id="file" class="file">
-        </form>
-        <button class="upload">Upload Image</button>
+          </form>
+          <button class="upload" onclick="handleImage()">Upload Image</button>
         <section class="result">
-           
         </section>
     </main>
 </body>
