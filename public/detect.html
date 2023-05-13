@@ -59,12 +59,14 @@
             const result = document.querySelector('.result');
             document.body.appendChild(imageRef);
             document.body.appendChild(canv);
+            let s;
             
 
 
                 function handleUpload(file) {
                         const src = window.URL.createObjectURL(file);
                         imageRef.src = src;
+                        s = imageRef.src.toString();
                         imageRef.onload = () => {
                             doPredictImage();
                             window.URL.revokeObjectURL(src);
@@ -100,7 +102,7 @@
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext("2d");
   const background = new Image();
-background.src = imageRef.src;
+background.src = s;
 
 
 
@@ -141,7 +143,7 @@ background.src = imageRef.src;
     ctx.fillStyle = "#FFFFFF";
     ctx.fillText(label, x1 + 2, y1 - (textHeight + 2));
     result.innerHTML = '';
-                        result.appendChild(canv);
+    result.appendChild(canv);
     
   }
 }
