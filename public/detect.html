@@ -8,18 +8,20 @@
     <link rel="stylesheet" href="../css/cssStyle.css">
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
     <script>
+        let model = null;
+        let loading = 0;
         async function loadModel() {
-            const model = await tf.loadGraphModel("https://raw.githubusercontent.com/VDSsystem/yolov5/main/model.json");
+            model = await tf.loadGraphModel("https://raw.githubusercontent.com/VDSsystem/yolov5/main/model.json");
             console.log('Model loaded successfully!');
-            const dummy = tf.ones(model.inputs[0].shape);
-            const res = await model.executeAsync(dummy);
-
-            // clear memory
-            tf.dispose(res);
-            tf.dispose(dummy);
-            console.log("Done");
         }
         loadModel();
+        const dummy = tf.ones(model.inputs[0].shape);
+        const res = await model.executeAsync(dummy);
+
+            // clear memory
+        tf.dispose(res);
+        tf.dispose(dummy);
+        console.log("Done");
         
     </script>
 
