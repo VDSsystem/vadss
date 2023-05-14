@@ -9,7 +9,7 @@ class ReportsHandler {
         return data.data
       }
       async getCameraReports(){
-        const response = await fetch(baseUrl)
+        const response = await fetch(baseUrl2)
         const data = await response.json()
         console.log(data.data)
         return data.data
