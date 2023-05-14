@@ -68,7 +68,7 @@ function repToCards(reports) {
         </tr>
         <tr>
             <td class="small">Location</td>
-            <td><a href="${reports.location}">${reports.location}</a></td>
+            <td><a href="${reports.location}" target="_blank">${reports.location}</a></td>
         </tr>
         <tr>
             <td class="small">Description</td>
@@ -86,7 +86,7 @@ function camToCards(reports) {
   </div>
                 <img src="${reports.url}" />
                 <div class="card-location">
-                <p>Location: <a href="https://www.google.com/maps/search/?api=1&query=${reports.lat},${reports.lng}">See location on map</a></p>
+                <p>Location: <a href="https://www.google.com/maps/search/?api=1&query=${reports.lat},${reports.lng}" target="_blank">See location on map</a></p>
                 </div>
             </div>
     `;
