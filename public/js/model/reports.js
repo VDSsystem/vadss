@@ -16,12 +16,12 @@ async function handleLoadReports() {
         const reportsCards = reports.map((report) => repToCards(report)).join('')
         reportsArea.innerHTML = reportsCards
     }
-   /* if (reports2.length === 0) {
+    if (reports2.length === 0) {
         reportsArea2.innerHTML = "There are no reports yet."
     } else {
-        const reportsCards2 = reports2.map((report) => camToCards(report)).join('')
+        const reportsCards2 = reports2.map((r) => camToCards(r)).join('')
         reportsArea2.innerHTML = reportsCards2
-    }*/
+    }
         
 }
 function repToCards(reports) {
