@@ -80,19 +80,15 @@ function repToCards(reports) {
 }
 function camToCards(reports) {
     return `
-      <div class="card">
-        <div class="card-header">
-          <h2 class="card-title">Accident Alert <span>!!! ID ${reports.id}</span></h2>
-        </div>
-        <div class="card-body">
-          <div class="card-image">
-            <img src="${reports.url}" alt="Accident Image" />
-          </div>
-            <div class="card-location">
-            <p>Location: <a href="https://www.google.com/maps/search/?api=1&query=${reports.lat},${reports.lng}">See location on map</a></p>
-          </div>
-        </div>
-      </div>
+    <div class="card">
+    <div class="card-header">
+    <h2 class="card-title">Accident Alert <span>!!! ID ${reports.id}</span></h2>
+  </div>
+                <img src="${reports.url}" />
+                <div class="card-location">
+                <p>Location: <a href="https://www.google.com/maps/search/?api=1&query=${reports.lat},${reports.lng}">See location on map</a></p>
+                </div>
+            </div>
     `;
   }
   
