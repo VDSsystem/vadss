@@ -88,10 +88,8 @@ function camToCards(reports) {
           <div class="card-image">
             <img src="${reports.url}" alt="Accident Image" />
           </div>
-          <div class="card-details">
             <div class="card-location">
             <p>Location: <a href="https://www.google.com/maps/search/?api=1&query=${reports.lat},${reports.lng}">See location on map</a></p>
-            </div>
           </div>
         </div>
       </div>

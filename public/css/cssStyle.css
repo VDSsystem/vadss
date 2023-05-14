@@ -316,12 +316,14 @@
   .card-image {
     flex: 1;
     padding: 10px;
+    max-height: calc(100% - 50px);
+    overflow: hidden;
   }
   
   .card-image img {
-    width: 100%;
-    height: auto;
-  }
+    height: 100%;
+    width: auto;
+  }  
   
   .card-location {
     margin-bottom: 10px;
