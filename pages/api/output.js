@@ -27,15 +27,14 @@ export default async function handler(req, res) {
 
 
   case "GET":
-    const id = req.query.id;
-    const image = await collection.findOne({ id: parseInt(id) });
-    if (!image) {
-      res.status(404).json({ message: "Image not found" });
+    const images = await collection.find().toArray();
+    if (!images || images.length === 0) {
+      res.status(404).json({ message: "No images found" });
     } else {
-      const url = image.url;
-      res.status(200).json({url });
+      res.status(200).json(images);
     }
     break;
+  
   
   }
 }
