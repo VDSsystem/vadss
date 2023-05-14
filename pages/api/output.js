@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   const collection = db.collection("output")
   switch (req.method) {
     case "POST":
-  const newImageString = req.body.get('url');
+  const newImageString = req.body.url;
   let maxId = 0;
   const result = await collection.aggregate([
     { $sort: { id: -1 } },
