@@ -27,13 +27,14 @@ export default async function handler(req, res) {
 
 
   case "GET":
-  const images = await collection.find().toArray();
-  if (!images || images.length === 0) {
-    res.status(404).json({ message: "No images found" });
-  } else {
-    res.status(200).json({ data: images });
+    const images = await collection.find().toArray();
+    if (!images || images.length === 0) {
+      res.status(404).json({ message: "No images found" });
+    } else {
+      res.status(200).json(images);
+    }
+    break;
+  
+  
   }
-  break;
-}
-
 }
