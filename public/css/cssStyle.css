@@ -314,15 +314,13 @@
   }
   
   .card-image {
-    flex: 1;
-    padding: 10px;
-    max-height: calc(100% - 50px);
-    overflow: hidden;
+    width: 200px;
+    height: 300px;
   }
   
   .card-image img {
-    height: 100%;
-    width: auto;
+    object-fit: contain;
+
   }  
   
   .card-location {
