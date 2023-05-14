@@ -6,9 +6,7 @@ export default async function handler(req, res) {
   const collection = db.collection("output")
   switch (req.method) {
     case "POST":
-  const newImage = req.body.url;
-  const newLat = req.body.lat;
-  const newLng = req.body.lng;
+  const newImageString = req.body;
   let maxId = 0;
   const result = await collection.aggregate([
     { $sort: { id: -1 } },
@@ -17,12 +15,7 @@ export default async function handler(req, res) {
     maxId = result[0].id;
   } //finding the maximumID 
   const newId = maxId + 1;
-  const newImageString = {
-    id: newId,
-    url: newImage,
-    lat: newLat,
-    lng: newLng
-  };
+  newImageString.id = newId;
   const addedImage = await collection.insertOne(newImageString);
   console.log(addedImage);
   if (!addedImage) {
@@ -31,8 +24,6 @@ export default async function handler(req, res) {
     res.status(200).json({id: newId});
   }
   break;
-
-
   case "GET":
     const id = req.query.id;
     const image = await collection.findOne({ id: parseInt(id) });
