@@ -9,18 +9,19 @@ async function handleLoadReports() {
     const reportsArea2 = document.querySelector(".cameraList")
     const reports = await ReportsHandler.getReports()
     const reports2 = await ReportsHandler.getCameraReports()
+    console.log(reports2);
     if (reports.length === 0) {
         reportsArea.innerHTML = "There are no reports yet."
     } else {
         const reportsCards = reports.map((report) => repToCards(report)).join('')
         reportsArea.innerHTML = reportsCards
     }
-    if (reports2.length === 0) {
+   /* if (reports2.length === 0) {
         reportsArea2.innerHTML = "There are no reports yet."
     } else {
         const reportsCards2 = reports2.map((report) => camToCards(report)).join('')
         reportsArea2.innerHTML = reportsCards2
-    }
+    }*/
         
 }
 function repToCards(reports) {
