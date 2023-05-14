@@ -6,12 +6,20 @@ window.onload = async () => {
 }
 async function handleLoadReports() {
     const reportsArea = document.querySelector(".reportList")
+    const reportsArea2 = document.querySelector(".cameraList")
     const reports = await ReportsHandler.getReports()
+    const reports2 = await ReportsHandler.getCameraReports()
     if (reports.length === 0) {
         reportsArea.innerHTML = "There are no reports yet."
     } else {
         const reportsCards = reports.map((report) => repToCards(report)).join('')
         reportsArea.innerHTML = reportsCards
+    }
+    if (reports2.length === 0) {
+        reportsArea2.innerHTML = "There are no reports yet."
+    } else {
+        const reportsCards2 = reports2.map((report) => camToCards(report)).join('')
+        reportsArea2.innerHTML = reportsCards2
     }
         
 }
@@ -69,3 +77,23 @@ function repToCards(reports) {
     </table>
     `;
 }
+function camToCards(reports) {
+    return `
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Accident Alert <span>!!! ID ${reports.id}</span></h2>
+        </div>
+        <div class="card-body">
+          <div class="card-image">
+            <img src="${reports.url}" alt="Accident Image" />
+          </div>
+          <div class="card-details">
+            <div class="card-location">
+            <p>Location: <a href="https://www.google.com/maps/search/?api=1&query=${reports.lat},${reports.lng}">See location on map</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+  
