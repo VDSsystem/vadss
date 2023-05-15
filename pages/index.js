@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
-import { useRouter } from 'next/router';
 
 const MyPage = () => {
-  const router = useRouter();
-
   useEffect(() => {
-    router.push('./main.html');
+    window.location.href = '/view/main.html';
   }, []);
+
+  return null; // or replace with appropriate JSX
 };
 
 export default MyPage;
