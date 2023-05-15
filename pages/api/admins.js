@@ -1,4 +1,4 @@
-import adminsRepo from "../repository/admins-repo"
+import adminsRepo from "./repository/admins-repo"
 
 export default async function handler(req, res) {
   switch (req.method) {
