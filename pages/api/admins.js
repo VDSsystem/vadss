@@ -1,5 +1,4 @@
-import { connectToDatabase } from "../../lib/mongodb"
-import adminsRepo from "./repository/admins-repo"
+import adminsRepo from "./repository/admins-repo.js"
 
 export default async function handler(req, res) {
   switch (req.method) {
