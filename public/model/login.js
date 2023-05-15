@@ -18,7 +18,7 @@ async function adminsServer(e) {
     console.log(password);
     const res = await adminsToServer.sendAdmin(email, password);
     if (res.success) {
-      window.location.href = "/reports.html";
+      window.location.href = '/view/reports.html';
     } else {
         const errorBox = document.getElementById("error-box");
         errorBox.classList.remove("hidden");
