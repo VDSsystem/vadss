@@ -84,6 +84,7 @@ function camToCards(reports) {
     <div class="card-header">
     <h2 class="card-title">Accident Alert <span>!!! ID ${reports.id}</span></h2>
   </div>
+  <p>${reports.date}</p>
                 <img src="${reports.url}" />
                 <div class="card-location">
                 <p>Location: <a href="https://www.google.com/maps/search/?api=1&query=${reports.lat},${reports.lng}" target="_blank">See location on map</a></p>
