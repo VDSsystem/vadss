@@ -28,7 +28,7 @@ function repToCards(reports) {
     return `
     <table border="1" class="reportCard">
         <tr>
-          <th colspan="2">Accident Alert <span>!!! ID ${reports.id}</span></th>
+          <th colspan="2">Accident Alert <span>!!! ID ${reports.id}${reports.letter}</span></th>
         </tr>
         <tr>
             <td class="small">Date and Time</td>
