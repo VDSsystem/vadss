@@ -5,7 +5,7 @@ const MyPage = () => {
     window.location.href = '/view/main.html';
   }, []);
 
-  return null; // or replace with appropriate JSX
+  return null; 
 };
 
 export default MyPage;
