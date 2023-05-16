@@ -25,6 +25,7 @@ class ReportsRepo {
         const foundReports = await col.find({}).toArray();//finding all reports
         const foundReport = foundReports.find(r => r.espID == newReport.espID);
         if (foundReport) {//if the report with the same espID already exists
+          newReport.id = foundReport.id;
           newReport.letter = "-B";//give it the name B
         } else {
           newReport.id = maxId + 1;
