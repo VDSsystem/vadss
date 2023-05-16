@@ -4,7 +4,7 @@ class ModelRepo {
     async connect(){
         const { mongoClient } = await connectToDatabase()
         const db = mongoClient.db("test")
-        const collection = db.collection("cameraReport")
+        const collection = db.collection("cameraReports")
         return collection
     }
     async getReports() {

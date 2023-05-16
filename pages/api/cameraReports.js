@@ -1,9 +1,6 @@
 import modelRepo from "./repository/model-repo";
 
 export default async function handler(req, res) {
-  const { mongoClient } = await connectToDatabase()
-  const db = mongoClient.db("test")
-  const collection = db.collection("output")
   switch (req.method) {
     case "POST":
   const newImageString = { url: req.body.url, lat: req.body.lat, lng: req.body.lng, dateTime: req.body.dateTime };
