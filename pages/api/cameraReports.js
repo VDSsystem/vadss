@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   if (!response) {
     res.status(401).json({ success: false });
   } else {
-    res.status(200).json({id: newId});
+    res.status(200).json({id: response.id});
   }
   break;
   case "GET":
