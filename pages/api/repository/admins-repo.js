@@ -13,7 +13,7 @@ class AdminsRepo {
         return { status: 200, data: admins };
       }
       
-    async userCredintials(email, password) {
+    async sendUser(email, password) {
         const admin = await this.userAuthentication(email, password);
         return admin
 

@@ -11,13 +11,13 @@ async function handleLoadReports() {
     const reports2 = await ReportsHandler.getCameraReports()
     console.log(reports2);
     if (reports.length === 0) {
-        reportsArea.innerHTML = "There are no reports yet."
+        reportsArea.innerHTML = "There are no vehicle reports yet."
     } else {
         const reportsCards = reports.map((report) => repToCards(report)).join('')
         reportsArea.innerHTML = reportsCards
     }
     if (reports2.length === 0) {
-        reportsArea2.innerHTML = "There are no reports yet."
+        reportsArea2.innerHTML = "There are no camera reports yet."
     } else {
         const reportsCards2 = reports2.map((r) => camToCards(r)).join('')
         reportsArea2.innerHTML = reportsCards2
