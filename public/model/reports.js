@@ -7,7 +7,7 @@ window.onload = async () => {
 async function handleLoadReports() {
     const reportsArea = document.querySelector(".reportList")
     const reportsArea2 = document.querySelector(".cameraList")
-    const reports = await ReportsHandler.getReports()
+    const reports = await ReportsHandler.getVehicleReports()
     const reports2 = await ReportsHandler.getCameraReports()
     console.log(reports2);
     if (reports.length === 0) {

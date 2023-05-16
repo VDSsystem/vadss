@@ -2,12 +2,12 @@ import adminsToServer from "../controller/adminsHandler.js"
 
 window.onload = async () => {
    const formInputs = document.querySelector('.logInForm')
-   formInputs.addEventListener('submit', adminsServer);
+   formInputs.addEventListener('submit', handleAdminsServer);
    console.log("Loaded")
 
 }
 
-async function adminsServer(e) {
+async function handleAdminsServer(e) {
     e.preventDefault()
     console.log("Submit pressed");
     const emailInput = document.getElementById("email");

@@ -2,7 +2,7 @@ const baseUrl = '/api/vehicleReports'
 const baseUrl2 = '/api/cameraReports'
 
 class ReportsHandler {
-    async getReports() {
+    async getVehicleReports() {
         const response = await fetch(baseUrl)
         const data = await response.json()
         console.log(data.data)
