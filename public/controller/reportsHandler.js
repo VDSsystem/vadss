@@ -11,7 +11,7 @@ class ReportsHandler {
       async getCameraReports(){
         const response = await fetch(baseUrl2)
         const data = await response.json()
-        return data
+        return data.data
       }
    
 }
