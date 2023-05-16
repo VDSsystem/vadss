@@ -1,5 +1,5 @@
-const baseUrl = '/api/reports'
-const baseUrl2 = '/api/output'
+const baseUrl = '/api/vehicleReports'
+const baseUrl2 = '/api/cameraReports'
 
 class ReportsHandler {
     async getReports() {

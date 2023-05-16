@@ -4,7 +4,7 @@ class ReportsRepo {
     async connect(){
         const { mongoClient } = await connectToDatabase()
         const db = mongoClient.db("test")
-        const collection = db.collection("reports")
+        const collection = db.collection("vehicleReports")
         return collection
     }
     async getReports() {
@@ -34,17 +34,6 @@ class ReportsRepo {
         const addedReport = await col.insertOne(newReport);
         return addedReport;
     }
-    async userAuthentication(email, password) {
-        const col = await this.connect()
-        const users = await col.find({}).toArray();
-        const user = users.find(u => u.email === email && u.password === password);
-      
-        if (user) {
-          return user;
-        } else {
-          return null;
-        }
-      }
 }
 
 export default new ReportsRepo()
