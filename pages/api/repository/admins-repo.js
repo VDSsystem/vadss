@@ -14,17 +14,17 @@ class AdminsRepo {
       }
       
     async sendUser(email, password) {
-        const admin = await this.userAuthentication(email, password);
+        const admin = await this.adminAuthentication(email, password);
         return admin
 
     }
-    async userAuthentication(email, password) {
+    async adminAuthentication(email, password) {
         const col = await this.connect()
-        const users = await col.find({}).toArray();
-        const user = users.find(u => u.email === email && u.password === password);
+        const admins = await col.find({}).toArray();
+        const admin = admins.find(u => u.email === email && u.password === password);
       
-        if (user) {
-          return user;
+        if (admin) {
+          return admin;
         } else {
           return null;
         }

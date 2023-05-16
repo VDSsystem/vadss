@@ -7,13 +7,13 @@ class ReportsRepo {
         const collection = db.collection("vehicleReports")
         return collection
     }
-    async getReports() {
+    async getVehicleReports() {
         const col = await this.connect()
         const reports = await col.find({}).toArray();
         return { status: 200, data: reports };
       }
       
-    async addReport(newReport) {
+    async addVehicleReport(newReport) {
       const col = await this.connect()
       let maxId = 0;
       const result = await col.aggregate([

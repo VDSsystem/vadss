@@ -7,13 +7,13 @@ class ModelRepo {
         const collection = db.collection("cameraReports")
         return collection
     }
-    async getReports() {
+    async getCameraReports() {
         const col = await this.connect()
         const reports = await col.find({}).toArray();
         return { status: 200, data: reports };
       }
       
-    async addReport(newImageReport) {
+    async addCameraReport(newImageReport) {
         const col = await this.connect()
         let maxId = 0;
         const result = await col.aggregate([
