@@ -11,13 +11,9 @@ export default async function handler(req, res) {
     res.status(200).json({id: newId});
   }
   break;
-
-
   case "GET":
     const reports = await modelRepo.getReports();
     res.status(200).json(reports);
     break;
-  
-  
   }
 }
