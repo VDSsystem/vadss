@@ -25,7 +25,7 @@ class ModelRepo {
         const newId = maxId + 1;
         newImageReport.id = newId;
         const addedImage = await col.insertOne(newImageReport);
-        return addedImage.id;
+        return addedImage;
     }
 }
 
