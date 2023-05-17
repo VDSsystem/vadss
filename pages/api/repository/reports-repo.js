@@ -17,7 +17,7 @@ class ReportsRepo {
         // Get the vehicle reports and find the maximum ID
         const vehicleReports = await this.getVehicleReports();
         let maxId = 0;
-        if (vehicleReports.data.length > 0) {
+        if (vehicleReports.length > 0) {
           maxId = Math.max(...vehicleReports.map(report => report.id));
         }
         // Check if a report with the same espID already exists
