@@ -74,13 +74,12 @@
     height: 400px;
   }
   .vision p{
-    text-align: justify;
     margin: 1rem;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: bold;
     font-style: italic;
     color: black;
-    text-align: center;
+    text-align: justify;
   }
   .prefooter{
     box-sizing: border-box;
@@ -416,13 +415,12 @@
         max-height: 400px;
       }
       .vision p{
-        text-align: justify;
         margin: 1rem;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         font-weight: bold;
         font-style: italic;
         color: black;
-        text-align: center;
+        text-align: justify;
       }
       .prefooter{
         box-sizing: border-box;
