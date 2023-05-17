@@ -15,8 +15,7 @@ class ReportsRepo {
       async addVehicleReport(vehicleReport) {
         const col = await this.connect();
         // Get the vehicle reports and find the maximum ID
-        const res = await this.getVehicleReports();
-        const vehicleReports = res.data;
+        const vehicleReports = await this.getVehicleReports();
         let maxId = 0;
         if (vehicleReports.data.length > 0) {
           maxId = Math.max(...vehicleReports.data.map(report => report.id));
@@ -37,7 +36,7 @@ class ReportsRepo {
       
     async generateVehicleReports(dateTime, sev, imu, flex, flex2, flex3, flex4, smoke, temprature, location, description, espID){
       const vehicleReport = { dateTime, sev, imu, flex, flex2, flex3, flex4, smoke, temprature, location, description, espID};
-      const addedReport = this.addVehicleReport(vehicleReport);
+      const addedReport = await this.addVehicleReport(vehicleReport);
       return addedReport;
 
     }
