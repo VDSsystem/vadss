@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   switch (req.method) {
     case "POST":
       const { url, lat, lng, dateTime } = req.body;
-      const response = await modelRepo.generateCameraReport(request)
+      const response = await modelRepo.generateCameraReport(lng, lat, url, dateTime)
   if (!response) {
     res.status(401).json({ success: false });
   } else {
