@@ -80,6 +80,7 @@
     font-style: italic;
     color: black;
     text-align: justify;
+    text-align-last: center;
   }
   .prefooter{
     box-sizing: border-box;
@@ -421,6 +422,7 @@
         font-style: italic;
         color: black;
         text-align: justify;
+        text-align-last: center;
       }
       .prefooter{
         box-sizing: border-box;
