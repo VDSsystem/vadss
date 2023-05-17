@@ -18,7 +18,7 @@ class ReportsRepo {
         const vehicleReports = await this.getVehicleReports();
         let maxId = 0;
         if (vehicleReports.data.length > 0) {
-          maxId = Math.max(...vehicleReports.data.map(report => report.id));
+          maxId = Math.max(...vehicleReports.map(report => report.id));
         }
         // Check if a report with the same espID already exists
         const foundReport = vehicleReports.find(report => report.espID == vehicleReport.espID);
