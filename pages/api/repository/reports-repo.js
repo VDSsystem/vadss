@@ -22,7 +22,7 @@ class ReportsRepo {
           maxId = Math.max(...vehicleReports.data.map(report => report.id));
         }
         // Check if a report with the same espID already exists
-        const foundReport = vehicleReports.data.find(report => report.espID == vehicleReport.espID);
+        const foundReport = vehicleReports.find(report => report.espID == vehicleReport.espID);
         if (foundReport) {
           vehicleReport.id = foundReport.id;
           vehicleReport.letter = "-B";
