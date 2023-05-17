@@ -13,7 +13,7 @@ class ModelRepo {
         return { status: 200, data: reports };
       }
       
-    async addCameraReport(newImageReport) {
+    async addCameraReport(cameraReport) {
         const col = await this.connect()
         let maxId = 0;
         const result = await col.aggregate([
@@ -23,9 +23,14 @@ class ModelRepo {
           maxId = result[0].id;
         } //finding the maximumID 
         const newId = maxId + 1;
-        newImageReport.id = newId;
-        const addedImage = await col.insertOne(newImageReport);
-        return addedImage;
+        cameraReport.id = newId;
+        const addedReport = await col.insertOne(cameraReport);
+        return addedReport;
+    }
+    async generateCameraReport(lng, lat, url, dateTime){
+      const cameraReport = { lng: lng, lat: lat, url: url, dateTime: dateTime};
+      const addedReport = this.addCameraReport(cameraReport);
+      return addedReport;
     }
 }
 

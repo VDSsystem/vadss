@@ -3,8 +3,8 @@ import modelRepo from "./repository/model-repo";
 export default async function handler(req, res) {
   switch (req.method) {
     case "POST":
-  const newImageReport = { url: req.body.url, lat: req.body.lat, lng: req.body.lng, dateTime: req.body.dateTime };
-  const response = await modelRepo.addCameraReport(newImageReport)
+      const { url, lat, lng, dateTime } = req.body;
+      const response = await modelRepo.generateCameraReport(request)
   if (!response) {
     res.status(401).json({ success: false });
   } else {
