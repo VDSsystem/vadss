@@ -28,7 +28,7 @@ class ModelRepo {
       
     async generateCameraReport(lng, lat, url, dateTime){
       const cameraReport = { lng: lng, lat: lat, url: url, dateTime: dateTime};
-      const addedReport = this.addCameraReport(cameraReport);
+      const addedReport = await this.addCameraReport(cameraReport);
       return addedReport;
     }
 }
