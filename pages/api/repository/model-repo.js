@@ -13,20 +13,19 @@ class ModelRepo {
         return { status: 200, data: reports };
       }
       
-    async addCameraReport(cameraReport) {
-        const col = await this.connect()
+      async addCameraReport(cameraReport) {
+        const col = await this.connect();
+        const cameraReports = await this.getCameraReports();
         let maxId = 0;
-        const result = await col.aggregate([
-          { $sort: { id: -1 } },
-          { $limit: 1 }]).toArray();
-        if (result.length > 0) {
-          maxId = result[0].id;
-        } //finding the maximumID 
+        if (cameraReports.data.length > 0) {
+          maxId = Math.max(...cameraReports.data.map(report => report.id));
+        }
         const newId = maxId + 1;
         cameraReport.id = newId;
         const addedReport = await col.insertOne(cameraReport);
         return addedReport;
-    }
+      }
+      
     async generateCameraReport(lng, lat, url, dateTime){
       const cameraReport = { lng: lng, lat: lat, url: url, dateTime: dateTime};
       const addedReport = this.addCameraReport(cameraReport);

@@ -19,8 +19,8 @@ class AdminsRepo {
 
     }
     async adminAuthentication(email, password) {
-        const col = await this.connect()
-        const admins = await col.find({}).toArray();
+        const resp = await this.getAdmins();
+        const admins = resp.data;
         const admin = admins.find(u => u.email === email && u.password === password);
       
         if (admin) {
