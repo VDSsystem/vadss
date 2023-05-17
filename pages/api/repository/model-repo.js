@@ -15,10 +15,11 @@ class ModelRepo {
       
       async addCameraReport(cameraReport) {
         const col = await this.connect();
-        const cameraReports = await this.getCameraReports();
+        const res = await this.generateCameraReport();
+        const cameraReports = res.data;
         let maxId = 0;
-        if (cameraReports.data.length > 0) {
-          maxId = Math.max(...cameraReports.data.map(report => report.id));
+        if (cameraReports.length > 0) {
+          maxId = Math.max(...cameraReports.map(report => report.id));
         }
         const newId = maxId + 1;
         cameraReport.id = newId;
